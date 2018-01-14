@@ -76,7 +76,15 @@ $(document).ready(function () {
         }
         console.log(requestedBottles);
 
-
+        for (var i = 0; i < requestedBottles.length; i++) {
+            tableBody.append(
+                '<tr>' +
+                '<td>' + requestedBottles[i].title +
+                '<small>x' + requestedBottles[i].amount + '</small></td>' +
+                '<td>' + (requestedBottles[i].amount*requestedBottles[i].price) + '</td>' +
+                '</tr>'
+            );
+        }
     });
 
     $(document).on('click', '.fa-minus-circle', function () {
@@ -84,7 +92,7 @@ $(document).ready(function () {
 
         itemToRemove = findInRequestedBottles(requestedBottles, currentIndex);
         if (itemToRemove !== null) {
-            if(requestedBottles[itemToRemove].amount > 1) {
+            if (requestedBottles[itemToRemove].amount > 1) {
                 requestedBottles[itemToRemove].amount--;
             } else {
                 requestedBottles.splice(itemToRemove, 1);
