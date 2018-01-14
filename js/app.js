@@ -37,11 +37,68 @@ function findInRequestedBottles(array, id) {
     return null;
 }
 
+function updateBottleImage(totalPrice, bottleImage) {
+   var imageUrl = '';
+    totalPrice = totalPrice / 16.5;
+    switch (totalPrice) {
+        case 0:
+            imageUrl = "img/rawsaw-bootle-0.png";
+            break;
+        case 1:
+            imageUrl = "img/rawsaw-bootle-1.png";
+            break;
+        case 2:
+            imageUrl = "img/rawsaw-bootle-2.png";
+            break;
+        case 3:
+            imageUrl = "img/rawsaw-bootle-3.png";
+            break;
+        case 4:
+            imageUrl = "img/rawsaw-bootle-4.png";
+            break;
+        case 5:
+            imageUrl = "img/rawsaw-bootle-5.png";
+            break;
+        default:
+            imageUrl = "img/rawsaw-bootle-6.png";
+    }
+    bottleImage.attr('src', imageUrl);
+}
+
+function updatePurchaseTable(bArray, whereToAppend, bottleImage) {
+    var tableRows = '',
+        totalPrice = 0;
+
+    for (var i = 0; i < bArray.length; i++) {
+        tableRows = tableRows +
+            '<tr>' +
+            '<td>' + bArray[i].title +
+            '<small>x' + bArray[i].amount +
+            '</small></td>' +
+            '<td>' + (bArray[i].amount * bArray[i].price).toFixed(2) +
+            ' zł</td>' +
+            '</tr>';
+
+        totalPrice = totalPrice + (bArray[i].amount * bArray[i].price);
+    }
+
+    tableRows = tableRows +
+        '<tr>' +
+        '<td>Razem:</td>' +
+        '<td>' + totalPrice.toFixed(2) + ' zł</td>' +
+        '</tr>';
+
+    whereToAppend.empty().append(tableRows);
+
+    updateBottleImage(totalPrice, bottleImage);
+}
+
 $(document).ready(function () {
     var bottles = [],
         requestedBottles = [],
         bottlesGallery = $('.bottles-area'),
         tableBody = $('#order'),
+        bottleImage = $('#filling-bottle'),
         itemToRemove,
         newBottle,
         currentIndex,
@@ -75,16 +132,7 @@ $(document).ready(function () {
             requestedBottles[sumSimilarItems].amount++;
         }
         console.log(requestedBottles);
-
-        for (var i = 0; i < requestedBottles.length; i++) {
-            tableBody.append(
-                '<tr>' +
-                '<td>' + requestedBottles[i].title +
-                '<small>x' + requestedBottles[i].amount + '</small></td>' +
-                '<td>' + (requestedBottles[i].amount*requestedBottles[i].price) + '</td>' +
-                '</tr>'
-            );
-        }
+        updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
 
     $(document).on('click', '.fa-minus-circle', function () {
@@ -97,7 +145,8 @@ $(document).ready(function () {
             } else {
                 requestedBottles.splice(itemToRemove, 1);
             }
-            console.log(requestedBottles);
         }
+        console.log(requestedBottles);
+        updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
 });
