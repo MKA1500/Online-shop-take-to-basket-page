@@ -1,0 +1,131 @@
+[
+  {
+    "title": "Green Velvet",
+    "pic": "img/green-velvet-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Salata",
+      "Jablko",
+      "Szpinak",
+      "Seler",
+      "Cytryna",
+      "Ogórek"
+    ],
+    "energia": "179 kcal",
+    "protein": "4.4 g",
+    "weglowodany": "36.4 g",
+    "fats": "1.1 g"
+  },
+  {
+    "title": "Mellow Yellow",
+    "pic": "img/mellow-yellow-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Melon",
+      "Pomarańcza",
+      "Jablko",
+      "Cytryna"
+    ],
+    "energia": "179 kcal",
+    "protein": "4.4 g",
+    "weglowodany": "36.4 g",
+    "fats": "1.1 g"
+  },
+  {
+    "title": "PINEAPPLE POPEYE",
+    "pic": "img/pineapple-popeye-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Szpinak",
+      "Natka",
+      "Ananas",
+      "Jablko",
+      "Ogórek"
+    ],
+    "energia": "247 kcal",
+    "protein": "4.6 g",
+    "weglowodany": "51.8 g",
+    "fats": "1.2 g"
+  },
+  {
+    "title": "MR. BEETNICK",
+    "pic": "img/mr-betnick-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Jarmuż",
+      "Ogórek",
+      "Seler naciowy",
+      "Mieta",
+      "Jablko"
+    ],
+    "energia": "198 kcal",
+    "protein": "3.7 g",
+    "weglowodany": "42 g",
+    "fats": "1.2 g"
+  },
+  {
+    "title": "Jim Jarmusch",
+    "pic": "img/jim-jarmusch-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Jarmuż",
+      "Ogórek",
+      "Seler naciowy",
+      "Mieta",
+      "Jablko"
+    ],
+    "energia": "198 kcal",
+    "protein": "3.7 g",
+    "weglowodany": "42 g",
+    "fats": "1.2 g"
+  },
+  {
+    "title": "BOMBAY GINGER",
+    "pic": "img/bombay-ginger-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Marchew",
+      "Kurkuma",
+      "Imbir",
+      "Pomarańcza"
+    ],
+    "energia": "198 kcal",
+    "protein": "3.7 g",
+    "weglowodany": "42 g",
+    "fats": "1.2 g"
+  },
+  {
+    "title": "JUNGLE JANE",
+    "pic": "img/jungle-jane-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Jarmuż",
+      "Szpinak",
+      "Salata",
+      "Natka",
+      "Ogórek",
+      "Jablko",
+      "Cytryna",
+      "Imbir"
+    ],
+    "energia": "179 kcal",
+    "protein": "4.4 g",
+    "weglowodany": "36.4 g",
+    "fats": "1.1 g"
+  },
+  {
+    "title": "LADY IN RED",
+    "pic": "img/lady-in-red-juice.png",
+    "price": "16.50",
+    "ingredients": [
+      "Burak",
+      "Marchew",
+      "Pomarańcza",
+      "Cytryna"
+    ],
+    "energia": "247 kcal",
+    "protein": "4.6 g",
+    "weglowodany": "51.8 g",
+    "fats": "1.2 g"
+  }
+]

@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #a5b1ee;
+}
+
+.shop-header {
+    width: 100%;
+    height: 86px;
+    background-color: #FFF;
+}
+
+.container {
+    background-color: #FFF;
+}
+
+.bottles-area {
+    height: auto;
+    padding: 0;
+}
+
+.a-bottle {
+    height: 525px;
+    margin: 0;
+    padding: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.a-bottle img {
+    width: auto;
+    height: 320px;
+}
+
+.a-bottle h4 {
+    text-transform: uppercase;
+}
+
+.a-bottle-ui {
+    width: 100px;
+    margin: 0 auto;
+    font-size: 40px;
+}
+
+.a-bottle-ui .add-to-basket i {
+    font-size: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.a-bottle-ui .remove i {
+    font-size: 36px;
+    line-height: 40px;
+    cursor: pointer;
+}
