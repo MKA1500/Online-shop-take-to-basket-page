@@ -1,7 +1,7 @@
 // https://rawsawcoldpress.pl/zamow-soki/
 
 function createNewBottle(index, items) {
-    items[index].ingredients = items[index].ingredients.toString().replace(/,/g, ', ')
+    items[index].ingredients = items[index].ingredients.toString().replace(/,/g, ', ');
     var newBot = '<div class="col-md-6 col-lg-4 a-bottle">' +
         '<img src="' + items[index].pic + '" alt="green-velvet-juice"/>' +
         '<h5>' + items[index].title + '</h5>' +
@@ -38,7 +38,7 @@ function findInRequestedBottles(array, id) {
 }
 
 function updateBottleImage(totalPrice, bottleImage) {
-   var imageUrl = '';
+    var imageUrl = '';
     totalPrice = totalPrice / 16.5;
     switch (totalPrice) {
         case 0:
@@ -68,7 +68,6 @@ function updateBottleImage(totalPrice, bottleImage) {
 function updatePurchaseTable(bArray, whereToAppend, bottleImage) {
     var tableRows = '',
         totalPrice = 0;
-
     for (var i = 0; i < bArray.length; i++) {
         tableRows = tableRows +
             '<tr>' +
@@ -78,24 +77,22 @@ function updatePurchaseTable(bArray, whereToAppend, bottleImage) {
             '<td>' + (bArray[i].amount * bArray[i].price).toFixed(2) +
             ' zł</td>' +
             '</tr>';
-
         totalPrice = totalPrice + (bArray[i].amount * bArray[i].price);
     }
-
     tableRows = tableRows +
         '<tr>' +
-        '<td>Razem:</td>' +
+        '<td><strong>Razem</strong></td>' +
         '<td>' + totalPrice.toFixed(2) + ' zł</td>' +
         '</tr>';
-
     whereToAppend.empty().append(tableRows);
-
     updateBottleImage(totalPrice, bottleImage);
 }
 
 $(document).ready(function () {
-    var bottles = [],
+    var win = $(window),
+        bottles = [],
         requestedBottles = [],
+        infoBox = $('#info-box'),
         bottlesGallery = $('.bottles-area'),
         tableBody = $('#order'),
         bottleImage = $('#filling-bottle'),
@@ -149,4 +146,16 @@ $(document).ready(function () {
         console.log(requestedBottles);
         updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
+
+    win.on('scroll', function () {
+        if (win.scrollTop() > 80) {
+            if(!infoBox.hasClass('box-fixed')) {
+                infoBox.addClass('box-fixed');
+            }
+        } else {
+            if(infoBox.hasClass('box-fixed')) {
+                infoBox.removeClass('box-fixed');
+            }
+        }
+    })
 });
