@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #a5b1ee;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
 }
 
 .shop-header {
@@ -12,6 +14,10 @@ body {
 
 .container {
     background-color: #FFF;
+}
+
+.container.main {
+    padding-top: 70px;
 }
 
 .bottles-area {
@@ -26,6 +32,7 @@ body {
     display: inline-block;
     box-sizing: border-box;
     text-align: center;
+    position: relative;
 }
 
 .a-bottle img {
@@ -33,8 +40,22 @@ body {
     height: 320px;
 }
 
-.a-bottle h4 {
+.a-bottle h5 {
     text-transform: uppercase;
+}
+
+.a-bottle .price {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background-color: #FFF;
+    border: 1px solid #000;
+    color: #000;
+    top: 150px;
+    right: 50%;
+    margin-right: -110px;
+    font-size: 16px;
+    line-height: 30px;
 }
 
 .a-bottle-ui {
@@ -53,4 +74,34 @@ body {
     font-size: 36px;
     line-height: 40px;
     cursor: pointer;
+}
+
+i:hover {
+    color: #3c3c3c;
+}
+
+.request-info {
+    margin-left: 15px;
+    position: relative;
+}
+
+#info-box {
+    box-sizing: border-box;
+    padding: 30px;
+    border: 1px solid #000;
+    width: 280px;
+    height: auto;
+    top: 33px;
+    position: absolute;
+}
+
+.filling-bottle-contanier {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.request-info table {
+    width: 100%;
 }

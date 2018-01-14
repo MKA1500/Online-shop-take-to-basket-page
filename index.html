@@ -9,7 +9,7 @@
     <!--[if IE]>
     <link rel="shortcut icon" href="img/favicon.png"><![endif]-->
     <link rel="icon" href="img/favicon.png">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
           crossorigin="anonymous">
@@ -23,9 +23,26 @@
 <body>
 <header class="shop-header">
 </header>
-<div class="container">
+<div class="container main">
     <div class="row">
         <div class="row col-sm-6 col-md-8 col-lg-9 bottles-area">
+        </div>
+        <div class="row col-sm-6 col-md-4 col-lg-3 request-info">
+            <div id="info-box">
+                <h5>Wybierz swoje smaki</h5>
+                <div class="filling-bottle-contanier">
+                    <img src="img/rawsaw-bootle-0.png" id="filling-bottle"/>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Cena</th>
+                    </tr>
+                    </thead>
+                    <tbody id="order"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

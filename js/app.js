@@ -4,7 +4,8 @@ function createNewBottle(index, items) {
     items[index].ingredients = items[index].ingredients.toString().replace(/,/g, ', ')
     var newBot = '<div class="col-md-6 col-lg-4 a-bottle">' +
         '<img src="' + items[index].pic + '" alt="green-velvet-juice"/>' +
-        '<h4>' + items[index].title + '</h4>' +
+        '<h5>' + items[index].title + '</h5>' +
+        '<div class="price">' + items[index].price + ' zł</div>' +
         '<p>' + items[index].ingredients + '</p>' +
         '<div class="row a-bottle-ui">' +
         '<div class="col-6 add-to-basket">' +
@@ -39,11 +40,12 @@ function findInRequestedBottles(array, id) {
 $(document).ready(function () {
     var bottles = [],
         requestedBottles = [],
-        totalPrice = 0,
         bottlesGallery = $('.bottles-area'),
+        tableBody = $('#order'),
         itemToRemove,
         newBottle,
-        currentIndex;
+        currentIndex,
+        sumSimilarItems;
 
     $.getJSON('bottles.json', function (data) {
         $.each(data, function (i, obj) {
@@ -58,20 +60,35 @@ $(document).ready(function () {
 
     $(document).on('click', '.fa-cart-plus', function () {
         currentIndex = getCurrentIndex(this);
-        requestedBottles.push({
-            "title": bottles[currentIndex].title,
-            "price": bottles[currentIndex].price,
-            "productId": currentIndex
-        });
+
+        sumSimilarItems = findInRequestedBottles(requestedBottles, currentIndex);
+        console.log(sumSimilarItems);
+
+        if (sumSimilarItems === null) {
+            requestedBottles.push({
+                "title": bottles[currentIndex].title,
+                "price": parseFloat(bottles[currentIndex].price),
+                "productId": currentIndex,
+                "amount": 1
+            });
+        } else {
+            requestedBottles[sumSimilarItems].amount++;
+        }
         console.log(requestedBottles);
+
+
     });
 
     $(document).on('click', '.fa-minus-circle', function () {
         currentIndex = getCurrentIndex(this);
 
         itemToRemove = findInRequestedBottles(requestedBottles, currentIndex);
-        if(itemToRemove !== null) {
-            requestedBottles.splice(itemToRemove, 1);
+        if (itemToRemove !== null) {
+            if(requestedBottles[itemToRemove].amount > 1) {
+                requestedBottles[itemToRemove].amount--;
+            } else {
+                requestedBottles.splice(itemToRemove, 1);
+            }
             console.log(requestedBottles);
         }
     });
