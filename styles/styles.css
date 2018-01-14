@@ -41,6 +41,33 @@ body {
 .a-bottle img {
     width: auto;
     height: 320px;
+    cursor: pointer;
+}
+
+.a-bottle .magnify {
+    background-color: #5d6439;
+    border-radius: 50%;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    padding: 19px 23px;
+    transition: all 1.5s ease;
+    position: absolute;
+    top: 185px;
+    margin-left: -30px;
+    left: 50%;
+    opacity: 0;
+}
+
+.a-bottle .magnify:hover {
+    cursor: pointer;
+    background-color: #a9c47f;
+    transition: all 1.5s ease;
+}
+
+.a-bottle .magnify i:hover {
+    color: #FFF;
 }
 
 .a-bottle h5 {
@@ -114,6 +141,17 @@ i:hover {
 #info-box h6 {
     font-size: 15px;
     font-weight: bold;
+    position: relative;
+}
+
+#info-box h6:before {
+    content: " ";
+    position: absolute;
+    height: 27px;
+    width: 46px;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #000;
 }
 
 .request-info table {
@@ -204,5 +242,14 @@ i:hover {
 
     .a-bottle .price {
         margin-right: -88px;
+        top: 120px;
+    }
+
+    #info-box h6:before {
+        width: 85px;
+    }
+
+    .a-bottle .magnify {
+        top: 160px;
     }
 }

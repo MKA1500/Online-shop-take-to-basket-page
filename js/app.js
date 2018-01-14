@@ -2,8 +2,11 @@
 
 function createNewBottle(index, items) {
     items[index].ingredients = items[index].ingredients.toString().replace(/,/g, ', ');
-    var newBot = '<div class="col-md-6 col-lg-4 a-bottle">' +
-        '<img src="' + items[index].pic + '" alt="green-velvet-juice"/>' +
+    var newBot = '<div class="col-md-6 col-lg-4 a-bottle" ' +
+        'id="bottleBox_' + index + '">' +
+        '<div class="magnify"><i class="fa fa-search" aria-hidden="true"></i></div>' +
+        '<img src="' + items[index].pic + '" alt="green-velvet-juice" ' +
+        'id="pic_' + index + '"/>' +
         '<h5>' + items[index].title + '</h5>' +
         '<div class="price">' + items[index].price + ' zł</div>' +
         '<p>' + items[index].ingredients + '</p>' +
@@ -147,13 +150,18 @@ $(document).ready(function () {
         updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
 
+    $(document).on('mouseenter mouseleave', '.magnify', function (evt) {
+        var opacity = evt.type === 'mouseenter' ? 1 : 0;
+        $(this).fadeTo(10, opacity);
+    });
+
     win.on('scroll', function () {
         if (win.scrollTop() > 80) {
-            if(!infoBox.hasClass('box-fixed')) {
+            if (!infoBox.hasClass('box-fixed')) {
                 infoBox.addClass('box-fixed');
             }
         } else {
-            if(infoBox.hasClass('box-fixed')) {
+            if (infoBox.hasClass('box-fixed')) {
                 infoBox.removeClass('box-fixed');
             }
         }
