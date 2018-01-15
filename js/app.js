@@ -119,7 +119,6 @@ $(document).ready(function () {
         currentIndex = getCurrentIndex(this);
 
         sumSimilarItems = findInRequestedBottles(requestedBottles, currentIndex);
-        console.log(sumSimilarItems);
 
         if (sumSimilarItems === null) {
             requestedBottles.push({
@@ -131,7 +130,6 @@ $(document).ready(function () {
         } else {
             requestedBottles[sumSimilarItems].amount++;
         }
-        console.log(requestedBottles);
         updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
 
@@ -146,7 +144,6 @@ $(document).ready(function () {
                 requestedBottles.splice(itemToRemove, 1);
             }
         }
-        console.log(requestedBottles);
         updatePurchaseTable(requestedBottles, tableBody, bottleImage);
     });
 
